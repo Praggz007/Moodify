@@ -1,2 +1,2 @@
-# Moodify
-An ML driven music recommendation/player app based on mood,age and preferences
+# MOODIFY
+Mood based Music recommendation and player web app
