@@ -1,0 +1,119 @@
+{
+  "happy|13-17": {
+    "valence": 0.8021619786242403,
+    "energy": 0.7543033064925632,
+    "danceability": 0.850278697408092,
+    "acousticness": 0.14850453209501085,
+    "tempo": 119.36605717450979,
+    "sampleSize": 213,
+    "lastUpdated": "2026-01-10T09:55:10.489Z"
+  },
+  "energetic|26-35": {
+    "valence": 0.8525703218122664,
+    "energy": 0.9130597025390337,
+    "danceability": 0.7438583430707467,
+    "acousticness": 0.053137914516503494,
+    "tempo": 139.81835962779886,
+    "sampleSize": 1,
+    "lastUpdated": "2026-01-10T09:55:10.746Z"
+  },
+  "sad|36-50": {
+    "valence": 0.11455763979268721,
+    "energy": 0.31174824536108126,
+    "danceability": 0.2983155340378107,
+    "acousticness": 0.8282706222490283,
+    "tempo": 68.18716750698604,
+    "sampleSize": 1,
+    "lastUpdated": "2026-01-10T09:55:10.981Z"
+  },
+  "sad|50+": {
+    "valence": 0.2984664129956818,
+    "energy": 0.3216599178948887,
+    "danceability": 0.314483713286944,
+    "acousticness": 0.8698497251010388,
+    "tempo": 50.0631023493994,
+    "sampleSize": 1,
+    "lastUpdated": "2026-01-10T09:55:11.253Z"
+  },
+  "energetic|50+": {
+    "valence": 0.9109289426690386,
+    "energy": 0.8062394986682612,
+    "danceability": 0.8112983230937121,
+    "acousticness": 0.06776799254180439,
+    "tempo": 132.1467835055574,
+    "sampleSize": 1,
+    "lastUpdated": "2026-01-10T09:55:11.490Z"
+  },
+  "happy|50+": {
+    "valence": 0.7988464506898836,
+    "energy": 0.7458415746482332,
+    "danceability": 0.8521926676795833,
+    "acousticness": 0.14109181597877576,
+    "tempo": 119.91965461214855,
+    "sampleSize": 208,
+    "lastUpdated": "2026-01-10T09:55:12.819Z"
+  },
+  "calm|50+": {
+    "valence": 0.24639842490755987,
+    "energy": 0.2851547044326411,
+    "danceability": 0.26646827482930363,
+    "acousticness": 0.7884049960193765,
+    "tempo": 67.0969772238394,
+    "sampleSize": 1,
+    "lastUpdated": "2026-01-10T09:55:13.058Z"
+  },
+  "stressed|50+": {
+    "valence": 0.2510845581640379,
+    "energy": 0.26079127997073687,
+    "danceability": 0.4166702235019962,
+    "acousticness": 0.521089548102683,
+    "tempo": 70.10077907596902,
+    "sampleSize": 1,
+    "lastUpdated": "2026-01-10T09:55:13.296Z"
+  },
+  "calm|18-25": {
+    "valence": 0.285497241360721,
+    "energy": 0.25724470367436,
+    "danceability": 0.3463213472978335,
+    "acousticness": 0.6422685924996788,
+    "tempo": 63.76459536606765,
+    "sampleSize": 1,
+    "lastUpdated": "2026-01-10T09:55:13.550Z"
+  },
+  "energetic|18-25": {
+    "valence": 0.8141139585661652,
+    "energy": 0.8275607825693908,
+    "danceability": 0.8304466388825336,
+    "acousticness": 0.14197741598057578,
+    "tempo": 135.24119809581802,
+    "sampleSize": 1,
+    "lastUpdated": "2026-01-10T09:55:13.792Z"
+  },
+  "happy|26-35": {
+    "valence": 0.7919888491348854,
+    "energy": 0.7516074805357722,
+    "danceability": 0.8514394337529336,
+    "acousticness": 0.1488445650324002,
+    "tempo": 119.9826338490886,
+    "sampleSize": 187,
+    "lastUpdated": "2026-01-10T09:55:14.783Z"
+  },
+  "happy|36-50": {
+    "valence": 0.7970435092967265,
+    "energy": 0.7461153179955137,
+    "danceability": 0.846218740215131,
+    "acousticness": 0.14624974909117985,
+    "tempo": 119.56802985538562,
+    "sampleSize": 207,
+    "lastUpdated": "2026-01-10T09:55:15.994Z"
+  },
+  "happy|18-25": {
+    "valence": 0.7989874857195273,
+    "energy": 0.7429882691733362,
+    "danceability": 0.845640694089954,
+    "acousticness": 0.1413062368123765,
+    "tempo": 119.64572314698398,
+    "sampleSize": 187,
+    "lastUpdated": "2026-01-10T09:55:16.981Z"
+  }
+}

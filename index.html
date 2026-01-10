@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🎵</text></svg>" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Moodify</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span style="font-size:28px">🎵</span>
+      <h1>Moodify</h1>
+    </div>
+    <select id="themeSelect" class="theme-select">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="sunset">Sunset</option>
+      <option value="ocean">Ocean</option>
+      <option value="beach">Beach</option>
+      <option value="space">Space</option>
+      <option value="mountains">Mountains</option>
+    </select>
+  </header>
+
+  <main>
+    <!-- Login Screen -->
+    <div id="login">
+      <div class="card" style="text-align:center; padding-bottom:40px;">
+        <h2>Welcome Back</h2>
+        <p>Sign in to track your mood & discover music.</p>
+      </div>
+
+      <div class="card">
+        <div style="margin-bottom:16px;">
+          <span class="label">Username</span>
+          <input type="text" id="loginUsername" placeholder="Enter username">
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <span class="label">Password</span>
+          <input type="password" id="loginPassword" placeholder="••••••••">
+        </div>
+
+        <button id="loginBtn" class="btn-primary">Sign In</button>
+        <p class="small" style="text-align:center; margin-top:16px;">Demo: use any username/password</p>
+      </div>
+    </div>
+
+    <!-- Home Screen -->
+    <div id="home" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <p class="small">Hello, <strong id="userDisplay">Guest</strong> 👋</p>
+        <button id="logoutBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px;">Logout</button>
+      </div>
+
+      <!-- Age group selector -->
+      <div class="card">
+        <span class="label">Select your Age Group</span>
+        <select id="ageGroupSelect">
+          <option value="">-- Choose one --</option>
+          <option value="13-17">13-17 (Teen)</option>
+          <option value="18-25">18-25 (Young Adult)</option>
+          <option value="26-35">26-35 (Adult)</option>
+          <option value="36-50">36-50 (Middle Age)</option>
+          <option value="50+">50+ (Senior)</option>
+        </select>
+      </div>
+      
+      <p class="label" style="margin-top:10px">How are you feeling?</p>
+      <div class="grid" id="moodGrid"></div>
+      
+      <div id="saving" class="card small" style="display:none; text-align:center;">
+        Finding the perfect track... 🎧
+      </div>
+    </div>
+
+    <!-- Recommendation Screen -->
+    <div id="rec" style="display:none">
+      <div id="moodBanner" class="card" style="text-align:center; overflow:hidden; position:relative; transition: all 0.5s ease;">
+        <div class="banner-content" style="position:relative; z-index:2;">
+            <h2 id="recMood" style="color:var(--text-main); margin-bottom:4px;">Mood</h2>
+            <p class="small" style="color:var(--text-main); opacity:0.8;">Here is your personalized vibe.</p>
+        </div>
+        <!-- Ambient Background Element -->
+        <div class="mood-ambient"></div>
+      </div>
+
+      <div class="card">
+        <span class="label">🎵 Recommended Song</span>
+        <h3 id="song" style="font-size:18px; margin-bottom:12px;">Loading...</h3>
+        <div id="player"></div>
+      </div>
+
+      <div class="card">
+        <span class="label">🏃 Activity Suggestion</span>
+        <p id="activity" style="font-size:16px; color:var(--text-main);">Loading...</p>
+      </div>
+
+      <button id="backBtn" class="btn-secondary">Choose Another Mood</button>
+    </div>
+  </main>
+
+  <footer>Moodify • Web + Android Demo</footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="mood.js"></script>
+</body>
+</html>
+
+
+  
