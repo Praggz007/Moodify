@@ -88,30 +88,34 @@
 
     <!-- Home Screen -->
     <div id="home" style="display:none">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <p class="small">Hello, <strong id="userDisplay">Guest</strong> 👋</p>
-        <div>
-          <button id="historyBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px; margin-right: 8px;">History</button>
-          <button id="settingsBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px; margin-right: 8px;">Settings</button>
-          <button id="logoutBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px;">Logout</button>
+      <!-- Main Content Wrapper - Includes greeting and mood selection -->
+      <div class="main-wrapper">
+        <!-- Greeting Section -->
+        <div class="greeting-section">
+          <p class="small">Hello, <strong id="userDisplay">Guest</strong> 👋</p>
+          <div class="button-group">
+            <button id="historyBtn" class="btn-outline-sm">History</button>
+            <button id="settingsBtn" class="btn-outline-sm">Settings</button>
+            <button id="logoutBtn" class="btn-outline-sm">Logout</button>
+          </div>
         </div>
-      </div>
 
-      <!-- Age group selector -->
-      <div class="card">
-        <span class="label">Select your Age Group</span>
-        <select id="ageGroupSelect">
-          <option value="">-- Choose one --</option>
-          <option value="13-17">13-17 (Teen)</option>
-          <option value="18-25">18-25 (Young Adult)</option>
-          <option value="26-35">26-35 (Adult)</option>
-          <option value="36-50">36-50 (Middle Age)</option>
-          <option value="50+">50+ (Senior)</option>
-        </select>
+        <!-- Age group selector -->
+        <div class="card" style="background: transparent; box-shadow: none; border: none; padding: 16px 0;">
+          <span class="label">Select your Age Group</span>
+          <select id="ageGroupSelect">
+            <option value="">-- Choose one --</option>
+            <option value="13-17">13-17 (Teen)</option>
+            <option value="18-25">18-25 (Young Adult)</option>
+            <option value="26-35">26-35 (Adult)</option>
+            <option value="36-50">36-50 (Middle Age)</option>
+            <option value="50+">50+ (Senior)</option>
+          </select>
+        </div>
+        
+        <p class="label" style="margin-top:10px">How are you feeling?</p>
+        <div class="grid" id="moodGrid"></div>
       </div>
-      
-      <p class="label" style="margin-top:10px">How are you feeling?</p>
-      <div class="grid" id="moodGrid"></div>
       
       <div id="saving" class="card small" style="display:none; text-align:center;">
         Finding the perfect track... 🎧
