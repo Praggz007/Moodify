@@ -29,7 +29,7 @@ app.set('trust proxy', 1);
 
 // ---------- MIDDLEWARE ----------
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:8080'], // Adjust as needed for your frontend
+  origin: true, // Allow any origin (reflects the request origin)
   credentials: true // Allow cookies to be sent
 }));
 app.use(express.json());
