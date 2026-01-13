@@ -34,7 +34,7 @@ the frontend without Spotify credentials.
 Run the server and test the recommendations endpoint with `curl` (or Postman):
 
 ```bash
-curl -X POST http://localhost:3001/api/recommendations \
+curl -X POST http://localhost:8080/api/recommendations \
 	-H "Content-Type: application/json" \
 	-d '{"mood":"happy","age_group":"18-25"}'
 ```

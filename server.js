@@ -22,11 +22,11 @@ process.on('uncaughtException', (err) => {
 });
 
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 8080;
 
 // ---------- MIDDLEWARE ----------
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'], // Adjust as needed for your frontend
+  origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:8080'], // Adjust as needed for your frontend
   credentials: true // Allow cookies to be sent
 }));
 app.use(express.json());

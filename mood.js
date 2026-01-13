@@ -1,7 +1,7 @@
 // mood.js — Complete frontend logic for Moodify
 (function(){
   // --- CONFIGURATION ---
-  const API_FALLBACK = 'http://localhost:3002';
+  const API_FALLBACK = 'http://localhost:8080';
   
   function getApiBase(){
     try{
@@ -10,7 +10,7 @@
          // Check if we are on a different port than the API (e.g. live-server on 8080)
          const loc = window.location;
          const port = loc.port ? parseInt(loc.port, 10) : (loc.protocol === 'https:' ? 443 : 80);
-         const fallbackPort = (new URL(API_FALLBACK)).port || '3002';
+         const fallbackPort = (new URL(API_FALLBACK)).port || '8080';
          if (String(port) !== String(fallbackPort)) return API_FALLBACK;
          return origin;
       }
