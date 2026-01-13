@@ -24,6 +24,9 @@ process.on('uncaughtException', (err) => {
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// Trust proxy for secure cookies behind load balancers (like Render, Heroku)
+app.set('trust proxy', 1);
+
 // ---------- MIDDLEWARE ----------
 app.use(cors({
   origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'http://localhost:8080'], // Adjust as needed for your frontend

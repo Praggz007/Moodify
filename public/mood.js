@@ -7,6 +7,12 @@
     try{
       const origin = window.location.origin;
       if (origin && origin !== 'null' && !origin.startsWith('file:')) {
+         const hostname = window.location.hostname;
+         // If deployed (not localhost), use the current origin
+         if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+             return origin;
+         }
+
          // Check if we are on a different port than the API (e.g. live-server on 8080)
          const loc = window.location;
          const port = loc.port ? parseInt(loc.port, 10) : (loc.protocol === 'https:' ? 443 : 80);
