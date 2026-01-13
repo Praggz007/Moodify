@@ -53,8 +53,8 @@ app.use(session({
 }));
 
 
-// Serve static files from project root (index.html, css, js, sw.js, etc.)
-const publicPath = path.join(__dirname);
+// Serve static files from the 'public' directory
+const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
 // Root route fallback: send index.html for GET /

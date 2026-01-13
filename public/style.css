@@ -6,14 +6,14 @@
   --primary: #6C63FF;
   --secondary: #FF6584;
   --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.7);
   --text-main: #2D3436;
   --text-muted: #636E72;
   --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
   --shadow-md: 0 10px 20px rgba(0,0,0,0.08);
-  --input-bg: #F7F7FC;
+  --input-bg: rgba(247, 247, 252, 0.6);
   --input-border: #EFF0F6;
-  --header-bg: rgba(255, 255, 255, 0.7);
+  --header-bg: rgba(255, 255, 255, 0.3);
   --radius: 20px;
   --font-family: 'Poppins', sans-serif;
 }
@@ -23,14 +23,14 @@
   --primary: #8E86FF;
   --secondary: #FF8BA7;
   --bg-gradient: linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%);
-  --card-bg: rgba(40, 40, 55, 0.85);
+  --card-bg: rgba(40, 40, 55, 0.7);
   --text-main: #F0F0F5;
   --text-muted: #A0A0B0;
   --shadow-sm: 0 4px 6px rgba(0,0,0,0.3);
   --shadow-md: 0 10px 20px rgba(0,0,0,0.5);
-  --input-bg: #32324a;
+  --input-bg: rgba(50, 50, 74, 0.6);
   --input-border: #454560;
-  --header-bg: rgba(30, 30, 45, 0.8);
+  --header-bg: rgba(30, 30, 45, 0.3);
 }
 
 /* Sunset Theme */
@@ -38,12 +38,12 @@
   --primary: #FF6B6B;
   --secondary: #FFD93D;
   --bg-gradient: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);
-  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: rgba(255, 255, 255, 0.7);
   --text-main: #4A2323;
   --text-muted: #8A5A5A;
-  --input-bg: #FFF0F5;
+  --input-bg: rgba(255, 240, 245, 0.6);
   --input-border: #FFD1DC;
-  --header-bg: rgba(255, 240, 245, 0.8);
+  --header-bg: rgba(255, 240, 245, 0.3);
 }
 
 /* Ocean Theme */
@@ -51,12 +51,12 @@
   --primary: #00B4D8;
   --secondary: #90E0EF;
   --bg-gradient: linear-gradient(135deg, #CAF0F8 0%, #0077B6 100%);
-  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: rgba(255, 255, 255, 0.7);
   --text-main: #023E8A;
   --text-muted: #0077B6;
-  --input-bg: #E0F7FA;
+  --input-bg: rgba(224, 247, 250, 0.6);
   --input-border: #B2EBF2;
-  --header-bg: rgba(224, 247, 250, 0.8);
+  --header-bg: rgba(224, 247, 250, 0.3);
 }
 
 /* Beach Theme */
@@ -64,12 +64,12 @@
   --primary: #F4A261;
   --secondary: #2A9D8F;
   --bg-gradient: linear-gradient(135deg, #FFF3E0 0%, #81C784 100%);
-  --card-bg: rgba(255, 253, 231, 0.9);
+  --card-bg: rgba(255, 253, 231, 0.7);
   --text-main: #E65100;
   --text-muted: #F57C00;
-  --input-bg: #FFF8E1;
+  --input-bg: rgba(255, 248, 225, 0.6);
   --input-border: #FFE082;
-  --header-bg: rgba(255, 248, 225, 0.8);
+  --header-bg: rgba(255, 248, 225, 0.3);
 }
 
 /* Space Theme */
@@ -77,12 +77,12 @@
   --primary: #D16BA5;
   --secondary: #86A8E7;
   --bg-gradient: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-  --card-bg: rgba(20, 20, 40, 0.85);
+  --card-bg: rgba(20, 20, 40, 0.7);
   --text-main: #FFFFFF;
   --text-muted: #B8B8D0;
-  --input-bg: #1A1A2E;
+  --input-bg: rgba(26, 26, 46, 0.6);
   --input-border: #5D5D8D;
-  --header-bg: rgba(15, 15, 35, 0.9);
+  --header-bg: rgba(15, 15, 35, 0.3);
 }
 
 /* Mountains Theme */
@@ -90,12 +90,12 @@
   --primary: #2E7D32;
   --secondary: #5D4037;
   --bg-gradient: linear-gradient(135deg, #E8F5E9 0%, #A5D6A7 100%);
-  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: rgba(255, 255, 255, 0.7);
   --text-main: #1B5E20;
   --text-muted: #388E3C;
-  --input-bg: #F1F8E9;
+  --input-bg: rgba(232, 245, 233, 0.6);
   --input-border: #C8E6C9;
-  --header-bg: rgba(232, 245, 233, 0.8);
+  --header-bg: rgba(232, 245, 233, 0.3);
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -121,64 +121,75 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  /* Optimize Image Quality */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
 }
 
-/* Space: Image Background */
+/* Space: Image Background - Deep Cosmic Vibe */
 body[data-theme="space"] {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bgss/space.jpg');
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.4), rgba(48, 43, 99, 0.6)), url('bgss/space.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-blend-mode: overlay; /* Boosts contrast and color */
   animation: gradientShift 60s ease-in-out infinite;
 }
 
-/* Sunset: Image Background */
+/* Sunset: Image Background - Warm Golden Glow */
 body[data-theme="sunset"] {
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('bgss/sunset.jpg');
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 217, 61, 0.3)), url('bgss/sunset.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-blend-mode: soft-light; /* Adds warmth without washing out */
   animation: slowRise 90s ease-in-out infinite;
 }
 
-/* Ocean: Waves effect */
+/* Ocean: Image Background - Deep Blue Depth */
 body[data-theme="ocean"] {
-  background: linear-gradient(-45deg, #CAF0F8, #90E0EF, #00B4D8, #0077B6);
-  background-size: 400% 400%;
-  animation: themeFlow 12s ease infinite;
-}
-
-/* Beach: Image Background */
-body[data-theme="beach"] {
-  background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('bgss/beach.jpg');
+  background: linear-gradient(135deg, rgba(0, 180, 216, 0.3), rgba(0, 119, 182, 0.5)), url('bgss/ocean.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-blend-mode: overlay; /* Enhances water blues */
+  animation: gradientShift 65s ease-in-out infinite;
+}
+
+/* Beach: Image Background - Sunny Vibrancy */
+body[data-theme="beach"] {
+  background: linear-gradient(135deg, rgba(244, 162, 97, 0.3), rgba(42, 157, 143, 0.3)), url('bgss/beach.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: overlay; /* Pops the sand and sea colors */
   animation: gradientShift 70s ease-in-out infinite;
 }
 
-/* Mountains: Image Background */
+/* Mountains: Image Background - Crisp Nature Tones */
 body[data-theme="mountains"] {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('bgss/mountains.jpg');
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.3), rgba(93, 64, 55, 0.3)), url('bgss/mountains.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-blend-mode: overlay; /* Deepens greens and browns */
   animation: gradientShift 80s ease-in-out infinite;
 }
 
 /* Glassmorphism Header */
 header {
-  background: var(--header-bg);
-  backdrop-filter: blur(12px);
+  background: transparent;
+  /* Removed blur for maximum image clarity at the top */
   padding: 12px 20px;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
   display: flex;
   justify-content: space-between; /* Ensures Logo Left, Theme Right */
   align-items: center;
   width: 100%;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ensure text remains readable */
 }
 
 header .logo {
