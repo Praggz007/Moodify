@@ -1,0 +1,5 @@
+I understand you'd like the "skip" button to be directly on the Spotify player. Unfortunately, directly embedding a skip button or any custom controls *within* the Spotify iframe player isn't possible due to web browser security restrictions (cross-origin policy). The Spotify player is hosted on a different domain, and for security reasons, we cannot inject our own interactive elements into it.
+
+However, I can achieve a similar visual integration by moving and styling the existing "Skip" button to be positioned right next to, or just below, the Spotify player, making it *look* like it's part of the player interface.
+
+Would you like me to move and style the existing skip button closer to the player for better visual integration? Or perhaps you were thinking of something else for the cases where a preview audio is played (which uses an <audio> tag, allowing more custom control)?

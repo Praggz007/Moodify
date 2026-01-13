@@ -1,0 +1,639 @@
+/* Modern Design System for Moodify */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Default (Light) Theme */
+  --primary: #6C63FF;
+  --secondary: #FF6584;
+  --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --text-main: #2D3436;
+  --text-muted: #636E72;
+  --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 20px rgba(0,0,0,0.08);
+  --input-bg: #F7F7FC;
+  --input-border: #EFF0F6;
+  --header-bg: rgba(255, 255, 255, 0.7);
+  --radius: 20px;
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --primary: #8E86FF;
+  --secondary: #FF8BA7;
+  --bg-gradient: linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%);
+  --card-bg: rgba(40, 40, 55, 0.85);
+  --text-main: #F0F0F5;
+  --text-muted: #A0A0B0;
+  --shadow-sm: 0 4px 6px rgba(0,0,0,0.3);
+  --shadow-md: 0 10px 20px rgba(0,0,0,0.5);
+  --input-bg: #32324a;
+  --input-border: #454560;
+  --header-bg: rgba(30, 30, 45, 0.8);
+}
+
+/* Sunset Theme */
+[data-theme="sunset"] {
+  --primary: #FF6B6B;
+  --secondary: #FFD93D;
+  --bg-gradient: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-main: #4A2323;
+  --text-muted: #8A5A5A;
+  --input-bg: #FFF0F5;
+  --input-border: #FFD1DC;
+  --header-bg: rgba(255, 240, 245, 0.8);
+}
+
+/* Ocean Theme */
+[data-theme="ocean"] {
+  --primary: #00B4D8;
+  --secondary: #90E0EF;
+  --bg-gradient: linear-gradient(135deg, #CAF0F8 0%, #0077B6 100%);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-main: #023E8A;
+  --text-muted: #0077B6;
+  --input-bg: #E0F7FA;
+  --input-border: #B2EBF2;
+  --header-bg: rgba(224, 247, 250, 0.8);
+}
+
+/* Beach Theme */
+[data-theme="beach"] {
+  --primary: #F4A261;
+  --secondary: #2A9D8F;
+  --bg-gradient: linear-gradient(135deg, #FFF3E0 0%, #81C784 100%);
+  --card-bg: rgba(255, 253, 231, 0.9);
+  --text-main: #E65100;
+  --text-muted: #F57C00;
+  --input-bg: #FFF8E1;
+  --input-border: #FFE082;
+  --header-bg: rgba(255, 248, 225, 0.8);
+}
+
+/* Space Theme */
+[data-theme="space"] {
+  --primary: #D16BA5;
+  --secondary: #86A8E7;
+  --bg-gradient: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  --card-bg: rgba(20, 20, 40, 0.85);
+  --text-main: #FFFFFF;
+  --text-muted: #B8B8D0;
+  --input-bg: #1A1A2E;
+  --input-border: #5D5D8D;
+  --header-bg: rgba(15, 15, 35, 0.9);
+}
+
+/* Mountains Theme */
+[data-theme="mountains"] {
+  --primary: #2E7D32;
+  --secondary: #5D4037;
+  --bg-gradient: linear-gradient(135deg, #E8F5E9 0%, #A5D6A7 100%);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-main: #1B5E20;
+  --text-muted: #388E3C;
+  --input-bg: #F1F8E9;
+  --input-border: #C8E6C9;
+  --header-bg: rgba(232, 245, 233, 0.8);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  transition: color 0.3s ease;
+  /* Reset Background Properties for Global Coverage */
+  background-size: cover; 
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Space: Image Background */
+body[data-theme="space"] {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bgss/space.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: gradientShift 60s ease-in-out infinite;
+}
+
+/* Sunset: Image Background */
+body[data-theme="sunset"] {
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('bgss/sunset.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: slowRise 90s ease-in-out infinite;
+}
+
+/* Ocean: Waves effect */
+body[data-theme="ocean"] {
+  background: linear-gradient(-45deg, #CAF0F8, #90E0EF, #00B4D8, #0077B6);
+  background-size: 400% 400%;
+  animation: themeFlow 12s ease infinite;
+}
+
+/* Beach: Image Background */
+body[data-theme="beach"] {
+  background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('bgss/beach.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: gradientShift 70s ease-in-out infinite;
+}
+
+/* Mountains: Image Background */
+body[data-theme="mountains"] {
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('bgss/mountains.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: gradientShift 80s ease-in-out infinite;
+}
+
+/* Glassmorphism Header */
+header {
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between; /* Ensures Logo Left, Theme Right */
+  align-items: center;
+  width: 100%;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1; /* Pushes theme select to the right */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Theme Select - Compact */
+.theme-select {
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--text-muted);
+  background: rgba(255,255,255,0.1);
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  width: auto; /* Prevent full width */
+  min-width: 80px;
+}
+.theme-select:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Fix dropdown menu readability in dark modes */
+.theme-select option {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+}
+
+[data-theme="dark"] .theme-select option,
+[data-theme="space"] .theme-select option {
+  background-color: #2a2a40;
+  color: #ffffff;
+}
+
+/* Layout */
+main {
+  flex: 1;
+  padding: 24px;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Typography */
+h2, h3 { margin-top: 0; color: var(--text-main); }
+p { color: var(--text-muted); line-height: 1.6; margin-bottom: 0; }
+.label { font-weight: 600; color: var(--text-main); display: block; margin-bottom: 8px; font-size: 14px; }
+.small { font-size: 13px; color: var(--text-muted); }
+
+/* Inputs & Selects */
+input, select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 15px;
+  transition: all 0.2s;
+  outline: none;
+}
+input:focus, select:focus {
+  border-color: var(--primary);
+  /* background: #fff; */ /* Keep theme bg */
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  border: none;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+button:active { transform: scale(0.98); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0, 0.2);
+}
+
+.btn-secondary {
+  background: var(--input-bg);
+  color: var(--text-main);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--input-border);
+  color: var(--text-muted);
+}
+
+header .btn-outline {
+  color: var(--text-main);
+  border-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+header .btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Mood Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.mood-btn {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  color: var(--text-main);
+}
+
+.mood-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.mood-btn:active {
+  transform: scale(0.96);
+}
+
+.mood-btn .emoji { font-size: 36px; margin-bottom: 8px; display: block; transition: transform 0.2s; }
+.mood-btn:hover .emoji { transform: scale(1.15) rotate(5deg); }
+.mood-btn .label { margin: 0; font-size: 15px; }
+
+/* Dynamic Mood Colors (Subtle border for dark mode compatibility) */
+.mood-btn[data-mood="happy"] { border-bottom: 4px solid #FFD54F; }
+.mood-btn[data-mood="sad"] { border-bottom: 4px solid #64B5F6; }
+.mood-btn[data-mood="energetic"] { border-bottom: 4px solid #FF6584; }
+.mood-btn[data-mood="calm"] { border-bottom: 4px solid #80CBC4; }
+.mood-btn[data-mood="stressed"] { border-bottom: 4px solid #B0BEC5; }
+
+/* Audio Player */
+audio { width: 100%; margin-top: 10px; border-radius: 30px; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 1000;
+  white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.warn { background: #FF4757; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+#home, #login, #rec { animation: fadeIn 0.4s ease-out; }
+
+/* MOOD BANNER: Emotionally Adaptive UI */
+#moodBanner {
+  border: none;
+  color: white !important;
+  min-height: 160px; /* Taller for impact */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Deeper shadow */
+}
+
+#moodBanner h2, #moodBanner p {
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 2; /* Keep text above */
+}
+
+/* Background Animation Keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes slowRise {
+  0% { background-position: 50% 0%; }
+  50% { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+@keyframes pulse-fast {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes vibe {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  75% { transform: translate(2px, 2px); }
+  100% { transform: translate(0,0); }
+}
+
+/* Ambient Layer */
+.mood-ambient {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: overlay; /* Blends nicely */
+}
+
+/* DYNAMIC EMOJI BANNER */
+
+[class^="banner-"] {
+  position: relative;
+  overflow: hidden;
+  /* Base Gradients */
+}
+
+/* Base colors for the container */
+.banner-happy { background: linear-gradient(135deg, #FFC107, #FF9800); }
+.banner-sad { background: linear-gradient(135deg, #37474F, #455A64); }
+.banner-energetic { background: linear-gradient(135deg, #FF5252, #D50000); }
+.banner-calm { background: linear-gradient(135deg, #4DB6AC, #009688); }
+.banner-stressed { background: linear-gradient(135deg, #546E7A, #263238); }
+
+/* Emoji Particles */
+.emoji-particle {
+  position: absolute;
+  font-size: 24px;
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 1; /* Behind text (z-index 2), above bg */
+}
+
+/* Animations */
+@keyframes floatUp {
+  0% { transform: translateY(100px) rotate(0deg); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-150px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes rainDown {
+  0% { transform: translateY(-150px); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(150px); opacity: 0; }
+}
+
+@keyframes shakeHard {
+  0% { transform: translate(0,0) rotate(0deg); }
+  25% { transform: translate(5px, 5px) rotate(5deg); }
+  50% { transform: translate(-5px, -5px) rotate(-5deg); }
+  75% { transform: translate(5px, -5px) rotate(5deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+
+@keyframes zoomPulse {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+@keyframes gentleFloat {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(10px, -20px); }
+  100% { transform: translate(0,0); }
+}
+/* Song History List */
+.song-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.song-history-item {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.song-details {
+    flex-grow: 1;
+}
+
+.song-title {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.song-artist {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.song-info {
+    text-align: right;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.song-mood {
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: var(--text-main);
+}
+
+.song-status {
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.song-date {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* Password Toggle Styles */
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-container input[type="password"],
+.password-input-container input[type="text"] {
+  padding-right: 50px; /* Make space for the toggle */
+}
+
+.show-password-checkbox {
+  display: none; /* Hide the actual checkbox */
+}
+
+.show-password-label {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* Eye icon - SVG for better scaling */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23636E72'%3E%3Cpath d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/%3E%3C/svg%3E");
+  transition: background-image 0.2s ease;
+}
+
+/* Eye-slash icon when checkbox is checked (password visible) */
+.show-password-checkbox:checked + .show-password-label {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23636E72'%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5 0 .65.13 1.26.36 1.83l-1.41 1.41C5.06 13.95 4 12 4 12c1.73-4.39 6-7.5 11-7.5.95 0 1.87.13 2.75.38l-1.55 1.55c-.6-.24-1.25-.38-1.9-.38zm4.58 4.3l1.83 1.83c.33-.53.6-1.07.82-1.63-1.73-4.39-6-7.5-11-7.5-.95 0-1.87.13-2.75.38l1.55 1.55c.6-.24 1.25-.38 1.9-.38zm-.72 1.38l-2.07-2.07c.09-.01.18-.01.27-.01 1.66 0 3 1.34 3 3 0 .09-.01.18-.01.27zm-4.24-4.24l-1.41-1.41c-2.88 1.15-5 3.75-5 7.07 0 4.19 3.59 7.65 8 7.95V22h2v-2.05c4.41-.3 8-3.76 8-7.95 0-3.32-2.12-5.92-5-7.07zm-1.85 4.39c-.33.53-.6.93-.72 1.05l-2.07-2.07c.09-.01.18-.01.27-.01 1.66 0 3 1.34 3 3 0 .09-.01.18-.01.27zm.72 1.38c-.33-.53-.6-.93-.72-1.05zm-.13-1.12l-1.41-1.41zM2 4.27l2.88 2.88c-1.73 4.39-6 7.5-11 7.5.95 0 1.87.13 2.75-.38l-1.55-1.55c-.6.24-1.25.38-1.9.38zm-1.85 4.39c-.33.53-.6.93-.72 1.05l-2.07-2.07c.09-.01.18-.01.27-.01 1.66 0 3 1.34 3 3 0 .09-.01.18-.01.27zm.72 1.38c-.33-.53-.6-.93-.72-1.05zm-.13-1.12l-1.41-1.41zM1 4.27l2.88 2.88c-1.73 4.39-6 7.5-11 7.5.95 0 1.87.13 2.75-.38l-1.55-1.55c-.6.24-1.25.38-1.9.38zm-1.85 4.39c-.33.53-.6.93-.72 1.05l-2.07-2.07c.09-.01.18-.01.27-.01 1.66 0 3 1.34 3 3 0 .09-.01.18-.01.27zm.72 1.38c-.33-.53-.6-.93-.72-1.05zm-.13-1.12l-1.41-1.41zM12 4.5c-5 0-9.27 3.11-11 7.5 1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 13c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/%3E%3C/svg%3E");
+}
+
+/* Player Action Buttons */
+.player-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
+  gap: 12px;
+}
+
+.btn-feedback {
+  background-color: var(--input-bg);
+  border: 2px solid var(--input-border);
+  color: var(--text-main);
+  padding: 12px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.btn-feedback:hover {
+  border-color: var(--primary);
+  opacity: 0.9;
+}

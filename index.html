@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🎵</text></svg>" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Moodify</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span style="font-size:28px">🎵</span>
+      <h1>Moodify</h1>
+    </div>
+    <select id="themeSelect" class="theme-select">
+      <option value="auto">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="sunset">Sunset</option>
+      <option value="ocean">Ocean</option>
+      <option value="beach">Beach</option>
+      <option value="space">Space</option>
+      <option value="mountains">Mountains</option>
+    </select>
+  </header>
+
+  <main>
+    <!-- Auth Screen (Login & Signup) -->
+    <div id="authScreen">
+      <!-- Login Form -->
+      <div id="login" class="card">
+        <h2 style="text-align:center;">Welcome Back</h2>
+        <p class="small" style="text-align:center;">Sign in to track your mood & discover music.</p>
+        
+        <div style="margin-bottom:16px;">
+          <span class="label">Username</span>
+          <input type="text" id="loginUsername" placeholder="Enter username">
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <span class="label">Password</span>
+          <div class="password-input-container">
+            <input type="password" id="loginPassword" placeholder="••••••••">
+            <input type="checkbox" id="showPasswordToggle" class="show-password-checkbox">
+            <label for="showPasswordToggle" class="show-password-label"></label>
+          </div>
+        </div>
+
+        <button id="loginBtn" class="btn-primary">Sign In</button>
+        <p class="small" style="text-align:center; margin-top:16px;">
+          Don't have an account? <a href="#" id="showSignup">Sign Up</a>
+        </p>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signup" class="card" style="display:none;">
+        <h2 style="text-align:center;">Join Moodify</h2>
+        <p class="small" style="text-align:center;">Create your account to start personalizing your music.</p>
+
+        <div style="margin-bottom:16px;">
+          <span class="label">Username</span>
+          <input type="text" id="signupUsername" placeholder="Choose a username">
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <span class="label">Password</span>
+          <div class="password-input-container">
+            <input type="password" id="signupPassword" placeholder="••••••••">
+            <input type="checkbox" id="showSignupPasswordToggle" class="show-password-checkbox">
+            <label for="showSignupPasswordToggle" class="show-password-label"></label>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <span class="label">Confirm Password</span>
+          <input type="password" id="signupConfirmPassword" placeholder="••••••••">
+        </div>
+
+        <button id="signupBtn" class="btn-primary">Sign Up</button>
+        <p class="small" style="text-align:center; margin-top:16px;">
+          Already have an account? <a href="#" id="showLogin">Sign In</a>
+        </p>
+      </div>
+    </div>
+
+
+    <!-- Home Screen -->
+    <div id="home" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <p class="small">Hello, <strong id="userDisplay">Guest</strong> 👋</p>
+        <div>
+          <button id="historyBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px; margin-right: 8px;">History</button>
+          <button id="settingsBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px; margin-right: 8px;">Settings</button>
+          <button id="logoutBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px;">Logout</button>
+        </div>
+      </div>
+
+      <!-- Age group selector -->
+      <div class="card">
+        <span class="label">Select your Age Group</span>
+        <select id="ageGroupSelect">
+          <option value="">-- Choose one --</option>
+          <option value="13-17">13-17 (Teen)</option>
+          <option value="18-25">18-25 (Young Adult)</option>
+          <option value="26-35">26-35 (Adult)</option>
+          <option value="36-50">36-50 (Middle Age)</option>
+          <option value="50+">50+ (Senior)</option>
+        </select>
+      </div>
+      
+      <p class="label" style="margin-top:10px">How are you feeling?</p>
+      <div class="grid" id="moodGrid"></div>
+      
+      <div id="saving" class="card small" style="display:none; text-align:center;">
+        Finding the perfect track... 🎧
+      </div>
+    </div>
+
+    <!-- Recommendation Screen -->
+    <div id="rec" style="display:none">
+      <div id="moodBanner" class="card" style="text-align:center; overflow:hidden; position:relative; transition: all 0.5s ease;">
+        <div class="banner-content" style="position:relative; z-index:2;">
+            <h2 id="recMood" style="color:var(--text-main); margin-bottom:4px;">Mood</h2>
+            <p class="small" style="color:var(--text-main); opacity:0.8;">Here is your personalized vibe.</p>
+        </div>
+        <!-- Ambient Background Element -->
+        <div class="mood-ambient"></div>
+      </div>
+
+      <div class="card">
+        <span class="label">🎵 Recommended Song</span>
+        <h3 id="song" style="font-size:18px; margin-bottom:12px;">Loading...</h3>
+        <div id="player"></div>
+        <div class="player-actions">
+          <button id="likeBtn" class="btn-feedback" style="display: none;">👍 Like</button>
+          <button id="dislikeBtn" class="btn-feedback" style="display: none;">👎 Dislike</button>
+          <button id="skipBtn" class="btn-outline" style="display: none;">Skip</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="label">🏃 Activity Suggestion</span>
+        <p id="activity" style="font-size:16px; color:var(--text-main);">Loading...</p>
+      </div>
+
+      <button id="backBtn" class="btn-secondary">Choose Another Mood</button>
+    </div>
+
+    <!-- History Screen -->
+    <div id="history" style="display:none">
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h2>Mood History</h2>
+                <button id="backToHomeBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px;">Back</button>
+            </div>
+            <div id="moodChart" style="margin-top:20px;">
+                <!-- Chart will be rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Screen -->
+    <div id="settings" style="display:none">
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                <h2>Settings</h2>
+                <button id="backFromSettingsBtn" class="btn-outline" style="width:auto; padding:8px 16px; font-size:13px;">Back</button>
+            </div>
+
+            <div style="margin-bottom:24px;">
+                <span class="label">Age Group</span>
+                <select id="settingsAgeGroupSelect">
+                    <option value="">-- Choose one --</option>
+                    <option value="13-17">13-17 (Teen)</option>
+                    <option value="18-25">18-25 (Young Adult)</option>
+                    <option value="26-35">26-35 (Adult)</option>
+                    <option value="36-50">36-50 (Middle Age)</option>
+                    <option value="50+">50+ (Senior)</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom:24px;">
+                <span class="label">Preferred Theme</span>
+                <select id="settingsThemeSelect" class="theme-select" style="width:100%; padding:14px;">
+                    <option value="auto">Automatic</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="sunset">Sunset</option>
+                    <option value="ocean">Ocean</option>
+                    <option value="beach">Beach</option>
+                    <option value="space">Space</option>
+                    <option value="mountains">Mountains</option>
+                </select>
+            </div>
+
+            <button id="saveSettingsBtn" class="btn-primary" style="margin-bottom: 24px;">Save Settings</button>
+
+            <h3>Change Password</h3>
+            <div style="margin-bottom:16px;">
+                <span class="label">Old Password</span>
+                <input type="password" id="oldPassword" placeholder="••••••••">
+            </div>
+            <div style="margin-bottom:16px;">
+                <span class="label">New Password</span>
+                <div class="password-input-container">
+                  <input type="password" id="newPassword" placeholder="••••••••">
+                  <input type="checkbox" id="showNewPasswordToggle" class="show-password-checkbox">
+                  <label for="showNewPasswordToggle" class="show-password-label"></label>
+                </div>
+            </div>
+            <div style="margin-bottom:24px;">
+                <span class="label">Confirm New Password</span>
+                <input type="password" id="confirmNewPassword" placeholder="••••••••">
+            </div>
+            <button id="changePasswordBtn" class="btn-secondary">Change Password</button>
+        </div>
+    </div>
+  </main>
+
+  <footer>Moodify • Web + Android Demo</footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="mood.js"></script>
+</body>
+</html>
+
+
+  
