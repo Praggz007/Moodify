@@ -146,16 +146,16 @@ Moodify/
 
 ## ⚙️ Setup Instructions
 
-## Clone the Repository
+### 1️⃣Clone the Repository
 ```bash
 git clone https://github.com/Praggz007/Moodify.git
 cd Moodify
 ```
-##Install Dependencies
+2️⃣Install Dependencies
 ```bash
 npm install
 ```
-##Environment Variables
+3️⃣Environment Variables
 ```bash
 SPOTIFY_CLIENT_ID=your_spotify_client_id
 SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
@@ -163,7 +163,7 @@ MONGODB_URI=your_mongodb_uri
 SESSION_SECRET=your_session_secret
 ```
 
-##Run the Server
+4️⃣Run the Server
 ```bash
 node server.js
 ```
